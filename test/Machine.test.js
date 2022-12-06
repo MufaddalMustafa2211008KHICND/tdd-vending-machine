@@ -55,7 +55,7 @@ describe('the vending machine', () => {
         const vm = new Machine();
 
         //act
-        const itemCode = 1375;
+        const itemCode = 13273;
 
         const message = vm.selectItem(itemCode);
 
