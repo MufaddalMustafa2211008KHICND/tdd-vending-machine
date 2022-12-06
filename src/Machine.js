@@ -21,8 +21,15 @@ module.exports = class Machine {
     selectItem(code) {
         for(const item of this.seeSelections()){
             if(code === item.code){
-                if(this.money < item.price)
+                if(this.money < item.price){
                 return `Your deposit is insufficient. Please add Rs ${item.price-this.money} for this item`
+
+                }
+                else{
+                    return {
+                        item:item.item,change:[20,10]
+                    }
+                }
             }
         }
         return 'The item you selected is unavailable'

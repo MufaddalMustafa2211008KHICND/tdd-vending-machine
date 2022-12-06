@@ -92,6 +92,6 @@ describe('the vending machine', () => {
         const item = vm.selectItem(3)
 
         //assert
-        expect(item.change).toBe([20,10])
+        expect(item.change).toStrictEqual([20,10])
     })
 });
