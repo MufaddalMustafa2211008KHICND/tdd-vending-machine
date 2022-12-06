@@ -49,4 +49,17 @@ describe('the vending machine', () => {
         //assert
         expect(depositedMoney).toBe('You have deposited Rs 150')
     })
+
+    test('AC4: When the item is unavailable, machine prompts that the item is unavailable', () => {
+        //arange
+        const vm = new Machine();
+
+        //act
+        const itemCode = 1375;
+
+        const message = vm.selectItem(itemCode);
+
+        //assert
+        expect(message).toBe('The item you selected is unavailable')
+    })
 });
