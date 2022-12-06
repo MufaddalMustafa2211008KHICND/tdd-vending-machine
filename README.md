@@ -1,3 +1,6 @@
+## Authors: Abeera Arshad & Mufaddal Mustafa
+
+
 ## TDD Vending Machine
 
 ### Objectives:

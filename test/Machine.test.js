@@ -20,7 +20,7 @@ describe('the vending machine', () => {
 
         //act
         const selections = vm.seeSelections();
-
+        
         //assert
         expect(selections.length).not.toBe(0)
     })
