@@ -78,4 +78,20 @@ describe('the vending machine', () => {
         //assert
         expect(message).toBe('Your deposit is insufficient. Please add Rs 20 for this item')
     })
+
+    test('AC6: I want to receive change, If I deposited more than the price of selected item', () => {
+        //arange
+        const vm = new Machine();
+        vm.deposit(100)
+
+        // we are looking for mints(it cost 70 Rs) and we deposited 100 
+        // And we want 30 rupees as change
+
+        //act
+        // mint's code is 3
+        const item = vm.selectItem(3)
+
+        //assert
+        expect(item.change).toBe([20,10])
+    })
 });
