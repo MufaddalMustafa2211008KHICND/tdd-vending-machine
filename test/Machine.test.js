@@ -33,6 +33,6 @@ describe('the vending machine', () => {
         const depositedMoney = vm.deposit(500);
 
         //assert
-        expect(depositedMoney).not.toBe('You have deposited Rs 500')
+        expect(depositedMoney).toBe('You have deposited Rs 500')
     })
 });

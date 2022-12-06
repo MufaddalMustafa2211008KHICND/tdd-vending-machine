@@ -11,4 +11,9 @@ module.exports = class Machine {
             {item: 'mints', price: 'Rs 70'}
         ]
     }
+
+    deposit(money) {
+        return `You have deposited Rs ${money}`
+    }
+
 };
