@@ -62,4 +62,20 @@ describe('the vending machine', () => {
         //assert
         expect(message).toBe('The item you selected is unavailable')
     })
+
+    test('AC5: When I have deposited insufficient money, I get a message to add more money', () => {
+        //arange
+        const vm = new Machine();
+        vm.deposit(50)
+
+        // we are looking for mints(it cost 70 Rs)
+        // And we have already deposited 50 Rs
+
+        //act
+        // mint's code is 3
+        const message = vm.selectItem(3)
+
+        //assert
+        expect(message).toBe('Your deposit is insufficient. Please add Rs 20 for this item')
+    })
 });
