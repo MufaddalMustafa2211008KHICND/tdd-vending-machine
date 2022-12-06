@@ -94,4 +94,17 @@ describe('the vending machine', () => {
         //assert
         expect(item.change).toStrictEqual([20,10])
     })
+
+    test('AC7: When I push cancel button I should receive money back which I deposited', () => {
+        //arange
+        const vm = new Machine();
+        vm.deposit(100)
+
+       
+        //act
+        const returnedmoney = vm.cancel()
+
+        //assert
+        expect(returnedmoney).toBe(100)
+    })
 });
