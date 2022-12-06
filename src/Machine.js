@@ -22,17 +22,18 @@ module.exports = class Machine {
         for(const item of this.seeSelections()){
             if(code === item.code){
                 if(this.money < item.price){
-                return `Your deposit is insufficient. Please add Rs ${item.price-this.money} for this item`
+                    return `Your deposit is insufficient. Please add Rs ${item.price-this.money} for this item`
 
                 }
                 else{
-                    return {
-                        item:item.item,change:[20,10]
-                    }
+                    return {item:item.item, change:[20,10]}
                 }
             }
         }
         return 'The item you selected is unavailable'
+    }
+    cancel(){
+        return {change:[this.money]}
     }
 
 };

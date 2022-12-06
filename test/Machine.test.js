@@ -105,6 +105,6 @@ describe('the vending machine', () => {
         const returnedmoney = vm.cancel()
 
         //assert
-        expect(returnedmoney).toBe(100)
+        expect(returnedmoney.change).toStrictEqual([100])
     })
 });
