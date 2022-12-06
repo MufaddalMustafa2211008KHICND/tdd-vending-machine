@@ -107,4 +107,17 @@ describe('the vending machine', () => {
         //assert
         expect(returnedmoney.change).toStrictEqual([100])
     })
+
+    test('AC8: When machine cannot return correct change it should prompt me a message', () => {
+        //arange
+        const vm = new Machine();
+        vm.deposit(10)
+
+        //act
+        //  we will be buying fanta candy(code 4) which has a price of 5 rs
+        const message = vm.selectItem(4)
+
+        //assert
+        expect(message).toStrictEqual('Cannot return proper change. Please choose another item or cancel the transaction')
+    })
 });

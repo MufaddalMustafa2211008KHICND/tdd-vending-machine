@@ -9,7 +9,8 @@ module.exports = class Machine {
         return [
             {item:'crisps', price: 100, code: 1}, 
             {item: 'chocolate', price: 350, code: 2},
-            {item: 'mints', price: 70, code: 3}
+            {item: 'mints', price: 70, code: 3},
+            {item: 'fanta candy', price: 5, code: 4}
         ]
     }
 
@@ -32,6 +33,7 @@ module.exports = class Machine {
         }
         return 'The item you selected is unavailable'
     }
+    
     cancel(){
         return {change:[this.money]}
     }
