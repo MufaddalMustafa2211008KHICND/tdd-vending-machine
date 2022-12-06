@@ -7,9 +7,9 @@ module.exports = class Machine {
 
     seeSelections() {
         return [
-            {item:'crisps', price:'Rs 100', code: 1}, 
-            {item: 'chocolate', price:'Rs 350', code: 2},
-            {item: 'mints', price: 'Rs 70', code: 3}
+            {item:'crisps', price: 100, code: 1}, 
+            {item: 'chocolate', price: 350, code: 2},
+            {item: 'mints', price: 70, code: 3}
         ]
     }
 
@@ -21,7 +21,8 @@ module.exports = class Machine {
     selectItem(code) {
         for(const item of this.seeSelections()){
             if(code === item.code){
-                return 'Item is availalable'
+                if(this.money < item.price)
+                return `Your deposit is insufficient. Please add Rs ${item.price-this.money} for this item`
             }
         }
         return 'The item you selected is unavailable'
