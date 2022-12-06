@@ -1,6 +1,7 @@
 module.exports = class Machine {
-    constructor() {
 
+    constructor() {
+        this.money = 0;
     }
 
 
@@ -13,7 +14,8 @@ module.exports = class Machine {
     }
 
     deposit(money) {
-        return `You have deposited Rs ${money}`
+        this.money += money;
+        return `You have deposited Rs ${this.money}`
     }
 
 };

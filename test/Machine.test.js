@@ -1,6 +1,8 @@
 const { TestScheduler } = require('jest');
 const Machine = require('../src/Machine');
 
+
+
 describe('the vending machine', () => {
     // it('should have items to purchase', () => {
     //     // setup
@@ -15,8 +17,8 @@ describe('the vending machine', () => {
     // });
 
     test('AC1: At first I should see selections in the vending machine', () => {
-        //arrange
-        const vm =  new Machine;
+        //arange
+        const vm = new Machine();
 
         //act
         const selections = vm.seeSelections();
@@ -26,13 +28,25 @@ describe('the vending machine', () => {
     })
 
     test('AC2: When I deposit money, the machine shows the deposited amount', () => {
-        //arrange
-        const vm =  new Machine;
+        //arange
+        const vm = new Machine();
 
         //act
         const depositedMoney = vm.deposit(500);
 
         //assert
         expect(depositedMoney).toBe('You have deposited Rs 500')
+    })
+
+    test('AC3: When I deposit additiopnal money, the machine shows new total amount', () => {
+        //arange
+        const vm = new Machine();
+
+        //act
+        vm.deposit(100)
+        const depositedMoney = vm.deposit(50);
+
+        //assert
+        expect(depositedMoney).toBe('You have deposited Rs 150')
     })
 });
