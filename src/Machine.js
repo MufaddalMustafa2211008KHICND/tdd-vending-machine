@@ -1,3 +1,17 @@
+const denominations = [500, 100, 50, 20, 10]
+
+
+const getChange = (amount, denoms) => {
+    const change = []
+    for(const item of denoms) {
+        while(amount >= item) {
+            amount -= item
+            change.push(item)
+        }
+    }
+    return {change, amountLeft: amount}
+}
+
 module.exports = class Machine {
 
     constructor() {
@@ -24,10 +38,16 @@ module.exports = class Machine {
             if(code === item.code){
                 if(this.money < item.price){
                     return `Your deposit is insufficient. Please add Rs ${item.price-this.money} for this item`
-
                 }
                 else{
-                    return {item:item.item, change:[20,10]}
+                    const {change, amountLeft} = getChange(this.money-item.price, denominations)
+                    this.money = amountLeft
+
+                    if(amountLeft !== 0){
+                        return 'Cannot return proper change. Please choose another item or cancel the transaction'
+                    }
+                    
+                    return {item: item.item, change}
                 }
             }
         }
@@ -35,7 +55,9 @@ module.exports = class Machine {
     }
     
     cancel(){
-        return {change:[this.money]}
+        const {change, amountLeft} = getChange(this.money, denominations)
+        this.money = amountLeft
+        return {change}
     }
 
 };

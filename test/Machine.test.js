@@ -111,10 +111,11 @@ describe('the vending machine', () => {
     test('AC8: When machine cannot return correct change it should prompt me a message', () => {
         //arange
         const vm = new Machine();
-        vm.deposit(10)
+        vm.deposit(100)
 
         //act
         //  we will be buying fanta candy(code 4) which has a price of 5 rs
+        //  vending machine cannot return 95 rs
         const message = vm.selectItem(4)
 
         //assert
